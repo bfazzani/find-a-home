@@ -2,9 +2,9 @@ import math as m
 import PySimpleGUI as sg
 
 # print("hello world")
-go = True
-while go:
 
+#returns a tuple, (stop, walking_value, biking_value, transit_value)
+def displayWalkingBikingTransitMenu():
     layout = [
         [sg.Text(
             "Welcome to Find A Home! We can recommend you a neighborhood based upon your preferences.\n       --------------------------------------------------------------------------------------------------------------------------------")],
@@ -26,18 +26,42 @@ while go:
     button, values = window.Read()
 
     if button == "Cancel":
-        go = False
-        break
+        stop = True
+    else:
+        stop = False
+
     walking_value = int(values[0])
     biking_value = int(values[1])
     transit_value = int(values[2])
-    #print("walking: {}   biking: {}   transit: {}".format(walking_value,biking_value,transit_value))
+    vals = (stop,walking_value, biking_value, transit_value)
+    return vals
+
+
+#DRIVER BELOW ***************************************************
+walking_value = -1
+biking_value = -1
+transit_value = -1
+
+stop = False
+while not stop:
+
+    tup = displayWalkingBikingTransitMenu()
+    stop = tup[0]
+    walking_value = tup[1]
+    biking_value = tup[2]
+    transit_value = tup[3]
+    if stop:
+        break
+
+
     layout = [
-        [sg.Text("Placeholder window. your responses:\n walking: {}   biking: {}   transit: {}".format(walking_value,biking_value,transit_value))],
+        [sg.Text("Placeholder window. your responses:\n walking: {}   biking: {}   transit: {}".format(walking_value,
+                                                                                                       biking_value,
+                                                                                                       transit_value))],
         [sg.CloseButton("Close")]
     ]
     window = sg.Window("Find A Home").Layout(layout)
     button = window.Read()
-    #if button == "Close":
-    go = False
+    # if button == "Close":
+    stop = True
     break
