@@ -18,6 +18,10 @@ while running:
     transit_value = prefs[3]
     education_value = prefs[4]
     safety_value = prefs[5]
+    addresses = gui.displayAddressesMenu()
+    running = addresses[0]
+    addresses = addresses[1:]
+
     if not running:
         break
 
