@@ -66,6 +66,6 @@ def displayAddressesMenu():
 
         if button == "Continue":
             cont = False
-            
+
     return (running, ads)
 
