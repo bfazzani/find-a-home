@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-
+import array
 
 # print("hello world")
 
@@ -41,10 +41,31 @@ def displayPreferencesMenu():
 
 
 def displayAddressesMenu():
-    layout = [
-        [sg.InputText("Please enter an address: ")],
-        [sg.CloseButton("Add More"), sg.CloseButton("Continue"), sg.CloseButton("Cancel")]
-    ]
+    cont = True
+    ads =[]
 
-    window = sg.Window('Find A Home').Layout(layout)
-    button, values = window.Read()
+    while(cont):
+        addys = ""
+        for st in ads:
+            print(type(st))
+            addys += str(st)+"\n"
+
+        layout = [
+            [sg.Text(addys)],
+            [sg.InputText("Please enter an address: ")],
+            [sg.CloseButton("Add More"), sg.CloseButton("Continue"), sg.CloseButton("Cancel")]
+        ]
+
+        window = sg.Window('Find A Home').Layout(layout)
+        button, values = window.Read()
+        ads.append(values)
+        running = True
+        if button == "Cancel":
+            running = False
+            cont = False
+
+        if button == "Continue":
+            cont = False
+            
+    return (running, ads)
+
