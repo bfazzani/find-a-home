@@ -8,6 +8,7 @@ def getCoordFromAddress(address):
     requestString = baseURL + url.urlencode({"address":address, "key":apiKey})
     r = requests.get(requestString)
     x = r.json()
+    fullAddress = x["results"][0]["formatted_address"]
     lat = x["results"][0]["geometry"]["location"]["lat"]
     lng = x["results"][0]["geometry"]["location"]["lng"]
-    return (lat, lng)
+    return (fullAddress, lat, lng)
