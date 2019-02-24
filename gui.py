@@ -3,7 +3,7 @@ import PySimpleGUI as sg
 # print("hello world")
 
 #returns a tuple, (stop, walking_value, biking_value, transit_value)
-def displayWalkingBikingTransitMenu():
+def displayPreferencesMenu():
     layout = [
         [sg.Text(
             "Welcome to Find A Home! We can recommend you a neighborhood based upon your preferences.\n       --------------------------------------------------------------------------------------------------------------------------------")],
