@@ -47,7 +47,7 @@ def displayAddressesMenu():
     while(cont):
         addys = ""
         for st in ads:
-            print(type(st))
+            
             addys += str(st)+"\n"
 
         layout = [
@@ -66,6 +66,6 @@ def displayAddressesMenu():
 
         if button == "Continue":
             cont = False
-            
+
     return (running, ads)
 
