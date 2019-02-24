@@ -12,5 +12,7 @@ def getTransitScores(address, lat, lng):
     x = r.json()
     walk = x["walkscore"]
     bike = x["bike"]["score"]
-    transit = x["transit"]["score"]
-    return (walk, bike, transit)
+    try:
+        return (walk, bike, x["transit"]["score"])
+    finally:
+        return (walk, bike, 0)
