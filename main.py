@@ -2,10 +2,10 @@ import googleMaps as maps
 import gui
 import walkScore as ws
 
-address = "1600 Amphitheatre Parkway, Mountain View, CA 94043, USA"
+address = "plano east senior high school"
 adData = maps.getCoordFromAddress(address)
-transitScores = ws.getTransitScores(address, adData[0], adData[1])
-print("{ad} at lat:{lat} lng:{lng}".format(ad=address, lat=adData[0], lng=adData[1]))
+transitScores = ws.getTransitScores(adData[0], adData[1], adData[2])
+print("{ad} at lat:{lat} lng:{lng}".format(ad=adData[0], lat=adData[1], lng=adData[2]))
 print(transitScores)
 
 running = True
