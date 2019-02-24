@@ -16,6 +16,8 @@ while running:
     walking_value = prefs[1]
     biking_value = prefs[2]
     transit_value = prefs[3]
+    education_value = prefs[4]
+    safety_value = prefs[5]
     if not running:
         break
 
