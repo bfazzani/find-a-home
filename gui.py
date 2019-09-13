@@ -47,7 +47,7 @@ def displayAddressesMenu():
     while(cont):
         addys = ""
         for st in ads:
-            
+
             addys += str(st)+"\n"
 
         layout = [
